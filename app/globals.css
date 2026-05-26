@@ -85,17 +85,27 @@ a:hover { text-decoration: underline; }
 .hamburger.open span:nth-child(3) { transform: translateY(calc(-1 * var(--line-shift))) rotate(-45deg); }
 
 .top-nav {
-  display: none;
-  margin-top: 1rem;
+  display: flex;
+  margin-top: 0;
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
   flex-direction: column;
   gap: 0.75rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition: max-height 0.2s ease, margin-top 0.2s ease, opacity 0.2s ease;
 }
 
-.top-nav.open { display: flex; }
+.top-nav.open {
+  margin-top: 1rem;
+  max-height: 12rem;
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .top-nav a { color: var(--muted); transition: color 0.2s; }
 .top-nav a:hover { color: var(--text); text-decoration: none; }

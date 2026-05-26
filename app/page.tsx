@@ -50,6 +50,7 @@ export default function Home() {
             type="button"
             aria-label="Toggle navigation menu"
             aria-expanded={menuOpen}
+            aria-controls="top-navigation"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
             <span />
@@ -66,7 +67,7 @@ export default function Home() {
           </button>
         </div>
 
-        <nav className={`top-nav ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
+        <nav id="top-navigation" className={`top-nav ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
           {navLinks.map((l) => (
             <a key={l} href={`/${l.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
               {l}

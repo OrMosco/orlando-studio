@@ -1,5 +1,13 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+type Theme = "dark" | "light";
+
 export default function Home() {
   const navLinks = ["Writing", "Projects", "About", "Now", "Uses"];
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<Theme>("dark");
 
   const gridItems = [
     { num: "01", label: "Writing" },
@@ -16,13 +24,57 @@ export default function Home() {
     { date: "Coming soon", title: "From Grasshopper to production: a developer's path" },
   ];
 
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark" || savedTheme === "light") {
+      setTheme(savedTheme);
+      return;
+    }
+
+    if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+      setTheme("light");
+    }
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   return (
     <div className="container">
-      <nav>
-        {navLinks.map((l) => (
-          <a key={l} href={`/${l.toLowerCase()}`}>{l}</a>
-        ))}
-      </nav>
+      <header className="top-bar">
+        <div className="top-controls">
+          <button
+            className={`icon-btn hamburger ${menuOpen ? "open" : ""}`}
+            type="button"
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+            aria-controls="top-navigation"
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+          <button
+            className="icon-btn"
+            type="button"
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            onClick={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))}
+          >
+            {theme === "dark" ? "☀︎" : "☾"}
+          </button>
+        </div>
+
+        <nav id="top-navigation" className={`top-nav ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
+          {navLinks.map((l) => (
+            <a key={l} href={`/${l.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
+              {l}
+            </a>
+          ))}
+        </nav>
+      </header>
 
       <section className="hero">
         <p className="hero-tag">Or Moscovitz — Orlando Studio</p>

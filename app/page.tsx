@@ -63,14 +63,14 @@ export default function Home() {
           <button
             className="icon-btn"
             type="button"
-            aria-label={theme === "dark" ? "Switch to day mode" : "Switch to dark mode"}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             onClick={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))}
           >
             {theme === "dark" ? "☀︎" : "☾"}
           </button>
         </div>
 
-        <nav className={`top-nav ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
+        <nav className={`top-nav ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen ? "true" : "false"}>
           {navLinks.map((l) => (
             <a key={l} href={`/${l.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
               {l}

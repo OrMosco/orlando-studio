@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Or Moscovitz — Parametric Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #1a1814; --bg2: #211f1b; --border: #2e2b26;
+  --text: #e8e0d0; --muted: #7a7060; --accent: #c8a96e;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+}
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; min-height: 100vh; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+nav { display: flex; gap: 2rem; padding: 2rem 0; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+nav a { color: var(--muted); transition: color 0.2s; }
+nav a:hover { color: var(--text); text-decoration: none; }
+.container { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+h1 { font-family: var(--serif); font-weight: 400; font-size: 2.8rem; line-height: 1.2; }
+h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; margin-bottom: 1rem; }
+.hero { padding: 4rem 0 3rem; border-bottom: 1px solid var(--border); }
+.hero-tag { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+.hero p { color: var(--muted); font-size: 1.05rem; max-width: 520px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin: 3rem 0; border: 1px solid var(--border); }
+.grid-item { background: var(--bg); padding: 1.8rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; transition: background 0.2s; cursor: pointer; }
+.grid-item:hover { background: var(--bg2); }
+.grid-item .num { font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; }
+.grid-item .label { font-family: var(--serif); font-size: 1.1rem; }
+.section { padding: 3rem 0; border-bottom: 1px solid var(--border); }
+.section-label { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+.post-item { display: flex; gap: 2rem; padding: 1.2rem 0; border-bottom: 1px solid var(--border); align-items: baseline; }
+.post-item:last-child { border-bottom: none; }
+.post-date { font-size: 0.78rem; color: var(--muted); white-space: nowrap; min-width: 90px; }
+.post-title { font-family: var(--serif); font-size: 1.05rem; color: var(--text); }
+.tag { display: inline-block; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--bg2); border: 1px solid var(--border); color: var(--muted); padding: 0.2rem 0.6rem; margin-right: 0.4rem; margin-top: 0.3rem; }
+footer { padding: 3rem 0; font-size: 0.8rem; color: var(--muted); display: flex; justify-content: space-between; }
+@media (max-width: 600px) { h1 { font-size: 2rem; } .grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+<div class="container">
+  <nav>
+    <a href="#">Writing</a>
+    <a href="#">Projects</a>
+    <a href="#">About</a>
+    <a href="#">Now</a>
+    <a href="#">Uses</a>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-tag">Or Moscovitz — Orlando Studio</p>
+    <h1>I build tools for those who build the world.</h1>
+    <p style="margin-top:1.5rem">
+      Parametric developer &amp; software builder for the built environment.
+      I create plugins, tools, and AI-powered workflows for architects,
+      engineers, and AEC teams that need geometry expertise.
+    </p>
+  </section>
+
+  <div class="grid">
+    <div class="grid-item"><span class="num">01</span><span class="label">Writing</span></div>
+    <div class="grid-item"><span class="num">02</span><span class="label">Projects</span></div>
+    <div class="grid-item"><span class="num">03</span><span class="label">About</span></div>
+    <div class="grid-item"><span class="num">04</span><span class="label">Now</span></div>
+    <div class="grid-item"><span class="num">05</span><span class="label">Uses</span></div>
+    <div class="grid-item"><span class="num">06</span><span class="label">Contact</span></div>
+  </div>
+
+  <section class="section">
+    <p class="section-label">Latest writing</p>
+    <div>
+      <div class="post-item"><span class="post-date">Coming soon</span><span class="post-title">Why parametric thinking changes how you build software</span></div>
+      <div class="post-item"><span class="post-date">Coming soon</span><span class="post-title">Building AI agents for the AEC industry</span></div>
+      <div class="post-item"><span class="post-date">Coming soon</span><span class="post-title">From Grasshopper to production: a developer's path</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">What I work with</p>
+    <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.5rem">
+      <span class="tag">Rhino</span><span class="tag">Grasshopper</span><span class="tag">Revit</span>
+      <span class="tag">Python</span><span class="tag">C#</span><span class="tag">Next.js</span>
+      <span class="tag">AI Agents</span><span class="tag">BIM</span><span class="tag">Parametric Design</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Or Moscovitz · Orlando Studio</span>
+    <span>Haifa, Israel</span>
+  </footer>
+</div>
+</body>
+</html>

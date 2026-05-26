@@ -13,6 +13,15 @@
   --sans: 'Inter', system-ui, sans-serif;
 }
 
+:root[data-theme="light"] {
+  --bg: #f3efe6;
+  --bg2: #ebe4d7;
+  --border: #d3c8b5;
+  --text: #1f1a13;
+  --muted: #6f6557;
+  --accent: #8f6f38;
+}
+
 html { font-size: 16px; }
 
 body {
@@ -22,24 +31,73 @@ body {
   font-weight: 300;
   line-height: 1.7;
   min-height: 100vh;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-nav {
-  display: flex;
-  gap: 2rem;
+.top-bar {
   padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.top-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.7rem;
+}
+
+.icon-btn {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.icon-btn:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+}
+
+.hamburger {
+  padding: 0;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hamburger span {
+  width: 1rem;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+.top-nav {
+  display: none;
+  margin-top: 1rem;
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
-  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-nav a { color: var(--muted); transition: color 0.2s; }
-nav a:hover { color: var(--text); text-decoration: none; }
+.top-nav.open { display: flex; }
+
+.top-nav a { color: var(--muted); transition: color 0.2s; }
+.top-nav a:hover { color: var(--text); text-decoration: none; }
 
 .container {
   max-width: 720px;

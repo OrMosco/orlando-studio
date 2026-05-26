@@ -25,10 +25,6 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark" || savedTheme === "light") {
       setTheme(savedTheme);
@@ -70,7 +66,7 @@ export default function Home() {
           </button>
         </div>
 
-        <nav className={`top-nav ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen ? "true" : "false"}>
+        <nav className={`top-nav ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
           {navLinks.map((l) => (
             <a key={l} href={`/${l.toLowerCase()}`} onClick={() => setMenuOpen(false)}>
               {l}

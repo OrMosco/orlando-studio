@@ -67,6 +67,7 @@ a:hover { text-decoration: underline; }
 }
 
 .hamburger {
+  --line-shift: calc(0.25rem + 1px);
   padding: 0;
   flex-direction: column;
   gap: 0.25rem;
@@ -79,9 +80,9 @@ a:hover { text-decoration: underline; }
   transition: transform 0.2s, opacity 0.2s;
 }
 
-.hamburger.open span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.hamburger.open span:nth-child(1) { transform: translateY(var(--line-shift)) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+.hamburger.open span:nth-child(3) { transform: translateY(calc(-1 * var(--line-shift))) rotate(-45deg); }
 
 .top-nav {
   display: none;

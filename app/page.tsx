@@ -25,6 +25,10 @@ export default function Home() {
   ];
 
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark" || savedTheme === "light") {
       setTheme(savedTheme);

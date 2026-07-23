@@ -18,6 +18,10 @@ export default function Home() {
     { num: "06", label: "Contact" },
   ];
 
+  const projects = [
+    { title: "confi3d", url: "https://shed-configurator-nine.vercel.app" },
+  ];
+
   const posts = [
     { date: "Coming soon", title: "Why parametric thinking changes how you build software" },
     { date: "Coming soon", title: "Building AI agents for the AEC industry" },
@@ -94,6 +98,19 @@ export default function Home() {
           </div>
         ))}
       </div>
+
+      <section className="section">
+        <p className="section-label">Projects</p>
+        <div className="post-list">
+          {projects.map((project) => (
+            <div className="post-item" key={project.title}>
+              <a href={project.url} target="_blank" rel="noopener noreferrer" className="post-title">
+                {project.title}
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="section">
         <p className="section-label">Latest writing</p>

@@ -19,7 +19,12 @@ export default function Home() {
   ];
 
   const projects = [
-    { title: "confi3d", url: "https://shed-configurator-nine.vercel.app" },
+    {
+      name: "confi3d",
+      description: "3D configurator services for architecture and construction. Interactive real-time product configuration with parametric geometry.",
+      url: "https://shed-configurator-nine.vercel.app",
+      tags: ["3D", "Configurator", "Parametric", "Next.js"],
+    },
   ];
 
   const posts = [
@@ -34,7 +39,6 @@ export default function Home() {
       setTheme(savedTheme);
       return;
     }
-
     if (window.matchMedia("(prefers-color-scheme: light)").matches) {
       setTheme("light");
     }
@@ -100,14 +104,29 @@ export default function Home() {
       </div>
 
       <section className="section">
-        <p className="section-label">Projects</p>
-        <div className="post-list">
+        <p className="section-label">Things I&apos;ve built</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginTop: "0.5rem" }}>
           {projects.map((project) => (
-            <div className="post-item" key={project.title}>
-              <a href={project.url} target="_blank" rel="noopener noreferrer" className="post-title">
-                {project.title}
-              </a>
-            </div>
+            <a
+              key={project.name}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div className="project-card">
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+                  <span className="project-name">{project.name}</span>
+                  <span className="project-arrow">↗</span>
+                </div>
+                <p className="project-description">{project.description}</p>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem", marginTop: "0.75rem" }}>
+                  {project.tags.map((tag) => (
+                    <span className="tag" key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </a>
           ))}
         </div>
       </section>

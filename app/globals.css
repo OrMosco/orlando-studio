@@ -194,3 +194,41 @@ footer {
   .post-item { flex-direction: column; gap: 0.3rem; }
   .post-date { min-width: unset; }
 }
+
+/* Project cards */
+.project-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  background: #252219;
+}
+
+.project-name {
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+.project-arrow {
+  font-size: 1rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.project-card:hover .project-arrow {
+  color: var(--accent);
+}
+
+.project-description {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-top: 0.6rem;
+  line-height: 1.6;
+}
